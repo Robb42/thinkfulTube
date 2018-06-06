@@ -9,18 +9,26 @@ function getDataFromApi(searchTerm, callback) {
 		q: `${searchTerm}`,
 		maxResults: "5",
 		type: "video",
-		order: "viewCount"
+		order: "viewCount",
+    nextPageToken: "next",
+    prevPageToken: "prev"
 	}
 	$.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
 
 function renderResult(result) {
-	return `
+  console.log(result);
+  let thumb = result.snippet.thumbnails.medium.url;
+  let title = result.snippet.title;
+  let id = result.id.videoId;
+  let channel = result.snippet.channelId;
+
+  return `
 	<div>
-	<h2>${result.snippet.title}</h2>
-	<iframe src="https://www.youtube.com/embed/${result.id.videoId}/${result.snippet.thumbnails.medium.url}"></iframe>
-	//need help getting the thumbnails right
-	</div>`;
+	<h3>${title}</h3>
+	<a href="https://www.youtube.com/watch?v=${id}"><img src="${thumb}"></a>
+  <p><a href="https://www.youtube.com/channel/${channel}">Click here</a> for more videos from this channel </p>
+	</div><hr>`;   
 }
 
 function displayYouTubeSearchData(data) {
