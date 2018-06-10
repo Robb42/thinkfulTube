@@ -4,23 +4,26 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Thinkful Tube</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 	<link rel="stylesheet" type="text/css" href="index.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
 </head>
 <body>
+  
 	<main role="main">
-		<div class="container">
-	      
-	      <form action="#" name="youtube-search" class="js-search-form">
-	        <label for="query">Search for Youtube Videos</label>
-	        <input type="text" name="youtube-query" class="js-query" required>
-	        <button type="submit">Search</button>	
-	      </form>
+    <div class="container">
+      
+      <h1>Search for Youtube Videos</h1>
+      <form action="#" class="js-search-form">
+        <label for="search-youtube">Enter Youtube video name here:</label>
+        <input type="text" id="search-youtube" class="js-query">
+        <button type="submit">Search</button>	
+      </form>
 
-	      <h2>Results</h2>
-	      <div class="js-search-results" aria-live="assertive" hidden>
-	      </div>
-		</div>
+      <h2>Results</h2>
+      <div class="js-search-results" aria-live="assertive" hidden>
+      </div>
+
+    </div>
 	</main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
