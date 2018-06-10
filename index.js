@@ -10,8 +10,8 @@ function getDataFromApi(searchTerm, callback) {
 		maxResults: "5",
 		type: "video",
 		order: "viewCount",
-    nextPageToken: "next",
-    prevPageToken: "prev"
+    	nextPageToken: "next",
+    	prevPageToken: "prev"
 	}
 	$.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
@@ -27,13 +27,13 @@ function renderResult(result) {
 	<div>
 	<h3>${title}</h3>
 	<a href="https://www.youtube.com/watch?v=${id}"><img src="${thumb}"></a>
-  <p><a href="https://www.youtube.com/channel/${channel}">Click here</a> for more videos from this channel </p>
+  	<p><a href="https://www.youtube.com/channel/${channel}">Click here</a> for more videos from this channel</p>
 	</div><hr>`;   
 }
 
 function displayYouTubeSearchData(data) {
 	const results = data.items.map((item, index) => renderResult(item));
-	$(".js-search-results").html(results);
+	$(".js-search-results").prop("hidden", false).html(results);
 }
 
 function watchSubmit() {
